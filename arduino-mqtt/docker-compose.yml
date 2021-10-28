@@ -1,0 +1,30 @@
+version: '3.7'
+
+x-common-settings: &common-settings
+  restart: always
+
+services:
+  arduino-mqtt:
+    <<: *common-settings
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - brokerMqtt
+    ports:
+      - "8080:8080"
+  brokerMqtt:
+    image: eclipse-mosquitto
+    volumes:
+      - mosquitto_conf:/mosquitto/config
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    container_name: brokerMqtt
+    ports:
+      - "1883:1883"
+    <<: *common-settings
+
+volumes:
+  mosquitto_conf:
+  mosquitto_data:
+  mosquitto_log:
