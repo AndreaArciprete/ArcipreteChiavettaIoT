@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Allarme {{topic.nomeAllarme}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item class="ion-text-center">
+  <ion-label class="labelAllarme">
+    Attenzione, all'interno della stanza {{topic.stanza}} è scattato l'allarme di {{topic.nomeAllarme}}!!!
+  </ion-label>
+</ion-item>
+  <ion-list class="ion-text-center">
+      <ion-button (click)="spegniAllarme()" class="bottoneAllarme">
+        Spegni allarme della stanza {{topic.stanza}}
+      </ion-button>
+  </ion-list>
+</ion-content>
