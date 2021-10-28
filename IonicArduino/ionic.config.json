@@ -1,0 +1,7 @@
+{
+  "name": "IonicArduino",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
